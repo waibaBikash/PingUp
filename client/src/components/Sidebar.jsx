@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
+import MenuItems from './MenuItems';
 
 const Sidebar = ({sidebarOpen, setSidebarOpen}) => {
 
@@ -10,6 +11,8 @@ const Sidebar = ({sidebarOpen, setSidebarOpen}) => {
       <div className='w-full'>
          <img onClick={()=> navigate('/')} src={assets.logo} alt="" className='w-26 ml-7 my-2 cursor-pointer' />
          <hr className='border-gray-300 mb-8' />
+
+         <MenuItems setSidebarOpen={setSidebarOpen} />
       </div>
     </div>
   )
