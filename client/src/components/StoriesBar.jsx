@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { dummyStoriesData } from '../assets/assets';
 import { Plus } from 'lucide-react';
 import moment from 'moment';
+import StoryModel from './StoryModel';
 
 const StoriesBar = () => {
 
   const [stories, setStories] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [viewStory, setViewStory] = useState(null);
 
   const fetcthStories = async () => {
     setStories(dummyStoriesData);
@@ -59,6 +62,9 @@ const StoriesBar = () => {
            ))
         }
        </div>
+       {/* // Add Story Model */}
+
+       {showModal && <StoryModel setShowModal={setShowModal} fetchStories={fetcthStories} />}
     </div>
   )
 }
