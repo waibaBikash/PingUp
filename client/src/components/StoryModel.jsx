@@ -1,4 +1,4 @@
-import { ArrowLeft, TextIcon } from 'lucide-react';
+import { ArrowLeft, TextIcon, Upload } from 'lucide-react';
 import React, { useState } from 'react'
 
 const StoryModel = ({setShowModal, fetchStories }) => {
@@ -56,9 +56,13 @@ const StoryModel = ({setShowModal, fetchStories }) => {
             </div>
 
             <div className='flex gap-2 mt-4'>
-               <button onClick={()=> {setMode('text'); setMedia(null); setPreviewUrl(null)}} className={`flex-1 flex items-center justify-center gap-2 p-2 rounded ${mode === 'text' ? "bg-white text-black" : "bg-zinc-800"}`}>
+               <button onClick={()=> {setMode('text'); setMedia(null); setPreviewUrl(null)}} className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${mode === 'text' ? "bg-white text-black" : "bg-zinc-800"}`}>
                  <TextIcon size={18} /> Text
                </button>
+                <label className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${mode=== 'media' ? "bg-white text-black " : "bg-zinc-800"}`}>
+                   <input onChange={(e)=>{handleMediaUpload(e); setMode('media')}} type="file" accept='image/*, video/*' className='hidden' />
+                   <Upload size={18} /> Photo/Video
+                </label>
             </div>
        </div>
 
