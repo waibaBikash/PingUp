@@ -15,7 +15,7 @@ const StoryViewer = ({viewStory, setViewStory}) => {
          );
       case 'video':
          return(
-          <video onEnded={()=>setViewStory(null)} src={viewStory.media_url} className='max-h-screen' />
+          <video onEnded={()=>setViewStory(null)} src={viewStory.media_url} className='max-h-screen' controls autoPlay />
          );
       case 'text':
          return(
