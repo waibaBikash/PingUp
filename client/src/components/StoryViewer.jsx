@@ -1,7 +1,11 @@
-import { BadgeCheck } from 'lucide-react'
+import { BadgeCheck, X } from 'lucide-react'
 import React from 'react'
 
 const StoryViewer = ({viewStory, setViewStory}) => {
+
+  const handleClose = ()=>{
+    setViewStory(null)
+  }
   return (
     <div className='fixed inset-0 h-screen bg-black bg-opacity-90 z-110 flex items-center justify-center' style={{backgroundColor: viewStory.media_type === 'text' ? viewStory.background_color : '#000000'}}>
        {/* Progress Bar */}
@@ -22,6 +26,10 @@ const StoryViewer = ({viewStory, setViewStory}) => {
                    </span>
                 </div>
             </div>
+            {/* Closed Button  */}
+            <button onClick={handleClose} className='absolute top-4 right-4 text-white text-3xl font-bold focus:outline-none'>
+               <X className='w-8 h-8 hover:scale-110 transition cursor-pointer' />
+            </button>
        </div>
   )
 }
