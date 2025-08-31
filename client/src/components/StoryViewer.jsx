@@ -17,6 +17,15 @@ const StoryViewer = ({viewStory, setViewStory}) => {
          elapsed += setTime;
          setProgress((elapsed / duration) * 100);
       }, setTime);
+
+      // Close the story after the duration
+      timer = setTimeout(()=>{
+        setViewStory(null);
+      }, duration)
+    }
+    return ()=>{
+      clearTimeout(timer);
+      clearInterval(progressInterval);
     }
   },[viewStory,setViewStory])
 
@@ -50,7 +59,7 @@ const StoryViewer = ({viewStory, setViewStory}) => {
     <div className='fixed inset-0 h-screen bg-black bg-opacity-90 z-110 flex items-center justify-center' style={{backgroundColor: viewStory.media_type === 'text' ? viewStory.background_color : '#000000'}}>
        {/* Progress Bar */}
        <div className='absolute top-0 left-0 w-full h-1 bg-gray-700'>
-           <div className='h-full bg-white transition-all duration-100 linear' style={{width: '30%'}}>
+           <div className='h-full bg-white transition-all duration-100 linear' style={{width: `${progress}%`}}>
 
            </div>
           </div>
