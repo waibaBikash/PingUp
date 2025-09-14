@@ -28,7 +28,7 @@ const Connection = () => {
 
              {/* Count */}
              <div className='mb-8 flex flex-wrap gap-6'>
-               {dataArray((item, index)=>(
+               {dataArray.map((item, index)=>(
                  <div key={index} className='felx flex-col text-center justify-center gap-1 border h-20 w-40 border-gray-200 bg-white shadow rounded-md '>
                    <b>{item.value.length}</b>
                    <p className='text-slate-600'>{item.label}</p>
