@@ -68,6 +68,26 @@ const Connection = () => {
                                    View Profile
                                </button>
                               }
+                              {
+                                currentTab === 'Following' && (
+                                  <button className='w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-black active:scale-95 transition cursor-pointer'>Unfollow
+                                  </button>
+                                )
+                              }
+                              {
+                                currentTab === 'Pending' && (
+                                  <button className='w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-black active:scale-95 transition cursor-pointer'>Accept
+                                  </button>
+                                )
+                              }
+                              {
+                                currentTab === 'Connections' && (
+                                  <button onClick={(`/messages/${user._id}`)}  className='w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-black active:scale-95 transition cursor-pointer flex items-center justify-center gap-1'>
+                                    <MessageSquare className='w-4 h-4' />
+                                    Message
+                                  </button>
+                                )
+                              }
                             </div>
                         </div>
                    </div>
